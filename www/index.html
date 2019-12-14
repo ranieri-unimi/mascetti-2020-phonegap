@@ -1,39 +1,68 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="msapplication-tap-highlight" content="no" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
-
-    <!-- GLI STILI CARINI -->
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <link rel="stylesheet"  type="text/css" href="css/bootstrap.css">
-
-    <title>Lorem</title>
+	<meta charset="utf-8" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="msapplication-tap-highlight" content="no" />
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+	<meta http-equiv="Content-Security-Policy" content="
+			default-src * 'unsafe-inline' gap:;
+			style-src * 'unsafe-inline';
+			script-src * 'unsafe-inline';
+			worker-src * 'unsafe-inline' 'unsafe-eval' blob:;
+			media-src *;
+			img-src * 'self' data: blob:;
+			" />
+	<!-- GLI STILI CARINI -->
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="https://api.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.css" />
+	<link rel="stylesheet" type="text/css" href="css/index.css" />
+	<title>Pickashu</title>
 </head>
-<body>
+<body class="align-items-center align-content-center text-center">
 
-    <!-- IL BOX DELL'APP-->
-    <div class="app">
-        <h1>Lorem</h1>
-        <button class="btn btn-danger" id="btn">CLICK</button>
+<!-- HEADER -->
+<header>
+	<div class="row">
+		<div class="col-6">
+			<h2>HP</h2>
+		</div>
+		<div class="col-6">
+			<h2>XP</h2>
+		</div>
+	</div>
+</header>
 
-    </div>
+<!-- MAP -->
+<section class="row" id="map">
+</section>
 
-    <!-- GLI SCRIPT CARINI -->
-    <script src="js/jquery-3.4.1.js"></script>
-    <script src="js/popper.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/smaug.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
+<!-- CHART -->
+<section class="row" id="chart">
+	<div class="col-12">
+		<p>CHART</p>
+	</div>
+</section>
 
-    <!-- STARTA TUTTO -->
-    <script type="text/javascript">
-        app.initialize();
-    </script>
+<!-- FOOTER -->
+<footer>
+	<div class="row">
+		<button class="col-6 btn-danger" id="btn-lx">LEFT</button>
+		<button class="col-6 btn-info" id="btn-rx">RIGHT</button>
+	</div>
+</footer>
+
+<!-- GLI SCRIPT CARINI -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://api.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+
+<!-- STARTA TUTTO -->
+<script type="text/javascript"> app.initialize(); </script>
+
 </body>
 </html>
