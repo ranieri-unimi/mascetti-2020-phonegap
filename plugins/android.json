@@ -10,9 +10,6 @@
     "cordova-plugin-battery-status": {
       "PACKAGE_NAME": "com.phonegap.helloworld"
     },
-    "cordova-plugin-camera": {
-      "PACKAGE_NAME": "com.phonegap.helloworld"
-    },
     "cordova-plugin-device": {
       "PACKAGE_NAME": "com.phonegap.helloworld"
     },
@@ -41,6 +38,10 @@
       "PACKAGE_NAME": "com.phonegap.helloworld"
     },
     "org.solderzzc.base64imagesaverplugin": {
+      "PACKAGE_NAME": "com.phonegap.helloworld"
+    },
+    "cordova-plugin-camera": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
       "PACKAGE_NAME": "com.phonegap.helloworld"
     }
   },

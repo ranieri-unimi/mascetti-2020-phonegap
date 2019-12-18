@@ -7,9 +7,9 @@
 # to you under the Apache License, Version 2.0 (the
 # "License"); you may not use this file except in compliance
 # with the License.  You may obtain a copy of the License at
-# 
+#
 # http://www.apache.org/licenses/LICENSE-2.0
-# 
+#
 # Unless required by applicable law or agreed to in writing,
 # software distributed under the License is distributed on an
 # "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -19,6 +19,76 @@
 #
 -->
 # Release Notes
+
+### 4.1.0 (Jun 27, 2019)
+
+-   docs: remove outdated test docs translations ([`06dc38f`](https://github.com/apache/cordova-plugin-camera/commit/06dc38f))
+-   build: remove `.ratignore` file that is not needed any more ([`5dc9527`](https://github.com/apache/cordova-plugin-camera/commit/5dc9527))
+-   chore: fix repo and issue urls and license in package.json and plugin.xml ([`cad8bd1`](https://github.com/apache/cordova-plugin-camera/commit/cad8bd1))
+-   fix: temporarily remove Appium tests to unbreak CI ([#468](https://github.com/apache/cordova-plugin-camera/issues/468)) ([`19d8e2f`](https://github.com/apache/cordova-plugin-camera/commit/19d8e2f))
+-   ci(travis): Update Travis CI configuration for new paramedic ([#455](https://github.com/apache/cordova-plugin-camera/issues/455)) ([`cffd0ac`](https://github.com/apache/cordova-plugin-camera/commit/cffd0ac))
+-   fix(android): Fix NullPointerException error on some Android phones ([#429](https://github.com/apache/cordova-plugin-camera/issues/429)) ([`295e928`](https://github.com/apache/cordova-plugin-camera/commit/295e928))
+-   ci: Update CI Environment Setup for Node.js 6 ([#438](https://github.com/apache/cordova-plugin-camera/issues/438)) ([`fae190e`](https://github.com/apache/cordova-plugin-camera/commit/fae190e))
+-   refactor(android): Enhancement: Camera plugin code cleanup ([#425](https://github.com/apache/cordova-plugin-camera/issues/425)) ([`a13665d`](https://github.com/apache/cordova-plugin-camera/commit/a13665d))
+-   fix(android): Exif data lost on many cases ([#331](https://github.com/apache/cordova-plugin-camera/issues/331)) ([`81b878d`](https://github.com/apache/cordova-plugin-camera/commit/81b878d))
+-   chore(github): Add or update GitHub pull request and issue template ([`b261d31`](https://github.com/apache/cordova-plugin-camera/commit/b261d31))
+-   fix(ios): fixes UIImagePickerController cancel handling for iOS11+ ([#377](https://github.com/apache/cordova-plugin-camera/issues/377)) ([`24c8b6c`](https://github.com/apache/cordova-plugin-camera/commit/24c8b6c))
+-   docs: Remove deprecated platforms from docs ([#394](https://github.com/apache/cordova-plugin-camera/issues/394)) ([`7ddb3df`](https://github.com/apache/cordova-plugin-camera/commit/7ddb3df))
+-   fix(android): return DATA_URL for ALLMEDIA if it's an image ([#382](https://github.com/apache/cordova-plugin-camera/issues/382)) ([`60e7795`](https://github.com/apache/cordova-plugin-camera/commit/60e7795))
+-   refactor(ios): [CB-13813](https://issues.apache.org/jira/browse/13813): Remove old iOS code ([#381](https://github.com/apache/cordova-plugin-camera/issues/381)) ([`ce77aab`](https://github.com/apache/cordova-plugin-camera/commit/ce77aab))
+-   feat(ios): [CB-13865](https://issues.apache.org/jira/browse/13865): (Ipad) Making popover Window Size configurable using popoverOptions - imagePicker ([#314](https://github.com/apache/cordova-plugin-camera/issues/314)) ([`cd72047`](https://github.com/apache/cordova-plugin-camera/commit/cd72047))
+-   chore(types): [CB-13837](https://issues.apache.org/jira/browse/13837): fix TypeScript Definition for CameraPopoverOptions ([#379](https://github.com/apache/cordova-plugin-camera/issues/379)) ([`86b0bf2`](https://github.com/apache/cordova-plugin-camera/commit/86b0bf2))
+-   docs(android): clarify android quirk of cameraDirection ([`a5a3d88`](https://github.com/apache/cordova-plugin-camera/commit/a5a3d88), [`bfbe4a1`](https://github.com/apache/cordova-plugin-camera/commit/bfbe4a1))
+-   chore(release): Bump minor version ([#370](https://github.com/apache/cordova-plugin-camera/issues/370)) ([`eed4433`](https://github.com/apache/cordova-plugin-camera/commit/eed4433))
+-   build: Remove automatic README generation ([#365](https://github.com/apache/cordova-plugin-camera/issues/365)) ([`07e8574`](https://github.com/apache/cordova-plugin-camera/commit/07e8574))
+-   docs: remove JIRA link ([`bcb26fb`](https://github.com/apache/cordova-plugin-camera/commit/bcb26fb))
+-   ci(travis): also accept terms for android sdk `android-27` ([`a346212`](https://github.com/apache/cordova-plugin-camera/commit/a346212))
+-   docs: remove outdated docs translations that haven't been touched for 3 years ([`403682b`](https://github.com/apache/cordova-plugin-camera/commit/403682b))
+-   fix(android): [CB-14097](https://issues.apache.org/jira/browse/14097): Fix crash when selecting some files with getPicture ([#322](https://github.com/apache/cordova-plugin-camera/issues/322)) ([`5c23b65`](https://github.com/apache/cordova-plugin-camera/commit/5c23b65))
+-   fix(browser): [CB-13384](https://issues.apache.org/jira/browse/13384): Added deprecation of video.src compatibility ([#288](https://github.com/apache/cordova-plugin-camera/issues/288)) ([`5163d38`](https://github.com/apache/cordova-plugin-camera/commit/5163d38))
+-   fix(browser): Remove audio flag from getUserMedia ([#284](https://github.com/apache/cordova-plugin-camera/issues/284)) ([`36343a8`](https://github.com/apache/cordova-plugin-camera/commit/36343a8))
+-   docs: replace warning emoji with warning unicode ([#317](https://github.com/apache/cordova-plugin-camera/issues/317)) ([`ead7d5e`](https://github.com/apache/cordova-plugin-camera/commit/ead7d5e))
+-   feat(android): Update engines to use variables ([#323](https://github.com/apache/cordova-plugin-camera/issues/323)) ([`6899c5e`](https://github.com/apache/cordova-plugin-camera/commit/6899c5e))
+-   feat(android): [CB-14017](https://issues.apache.org/jira/browse/14017): Make com.android.support:support-v4 version configurable ([#318](https://github.com/apache/cordova-plugin-camera/issues/318)) ([`e334656`](https://github.com/apache/cordova-plugin-camera/commit/e334656))
+-   refactor(android): [CB-14047](https://issues.apache.org/jira/browse/14047): CameraLauncher: Replacing Repeated String literals with final variables ([#319](https://github.com/apache/cordova-plugin-camera/issues/319)) ([`5ec121b`](https://github.com/apache/cordova-plugin-camera/commit/5ec121b))
+-   fix(windows): [CB-11714](https://issues.apache.org/jira/browse/11714): added extra check for content-type in savePhoto() without options.targetWidth/Height ([#242](https://github.com/apache/cordova-plugin-camera/issues/242)) ([`a201722`](https://github.com/apache/cordova-plugin-camera/commit/a201722), [`dc73954`](https://github.com/apache/cordova-plugin-camera/commit/dc73954), [`dca4b9c`](https://github.com/apache/cordova-plugin-camera/commit/dca4b9c), [`c1b9772`](https://github.com/apache/cordova-plugin-camera/commit/c1b9772), [`eb57b02`](https://github.com/apache/cordova-plugin-camera/commit/eb57b02))
+
+
+### 4.0.3 (Apr 12, 2018)
+* [CB-12593](https://issues.apache.org/jira/browse/CB-12593) **Android** Fix potential `FileProvider` conflicts
+* Fix a mistake in the examples of usage descriptions (#313)
+* CB-13854(ios): fix Camera opens in portrait orientation on iphones
+* [CB-13415](https://issues.apache.org/jira/browse/CB-13415) **Android** Importing corrupt images using the Camera plugin crashes the app
+
+### 4.0.2 (Jan 24, 2018)
+* [CB-13781](https://issues.apache.org/jira/browse/CB-13781) (android) Fixed permissions request on **Android** 8 to save a photo into the photo album
+* [CB-13747](https://issues.apache.org/jira/browse/CB-13747) Add build-tools-26.0.2 to travis
+
+### 4.0.1 (Dec 27, 2017)
+* CB-13701Fix to allow 4.0.0 version install
+
+### 4.0.0 (Dec 15, 2017)
+* [CB-13661](https://issues.apache.org/jira/browse/CB-13661) Remove deprecated platforms
+
+### 3.0.0 (Nov 06, 2017)
+* Added `cordova-OSX` support
+* [CB-13515](https://issues.apache.org/jira/browse/CB-13515) (all): Add 'protective' entry to `cordovaDependencies`
+* [CB-13332](https://issues.apache.org/jira/browse/CB-13332) (iOS): document `NSPhotoLibraryAddUsageDescription`
+* [CB-13264](https://issues.apache.org/jira/browse/CB-13264) (iOS): Remove **iOS** usage descriptions
+* [CB-13473](https://issues.apache.org/jira/browse/CB-13473) (CI) Removed **Browser** builds from AppVeyor
+* [CB-13446](https://issues.apache.org/jira/browse/CB-13446) Sync template with previous doc changes
+* [CB-13294](https://issues.apache.org/jira/browse/CB-13294) Removed `cordova-plugin-compat`
+* [CB-13299](https://issues.apache.org/jira/browse/CB-13299) (CI) Fix **Android** builds
+* [CB-12985](https://issues.apache.org/jira/browse/CB-12985) setup `eslint` and removed `jshint`
+* [CB-13028](https://issues.apache.org/jira/browse/CB-13028) (CI) **Browser** builds on Travis and AppVeyor
+* [CB-13002](https://issues.apache.org/jira/browse/CB-13002) (Android, **iOS**) Fix occasional Appium tests failures
+* [CB-13000](https://issues.apache.org/jira/browse/CB-13000) (CI) Speed up **Android** builds
+* [CB-12991](https://issues.apache.org/jira/browse/CB-12991) (CI) Updated CI badges
+* [CB-12964](https://issues.apache.org/jira/browse/CB-12964) (android) Fix of bug when Pictures folder did not exist.
+* [CB-12982](https://issues.apache.org/jira/browse/CB-12982) (Android, **iOS**) Appium tests: try to create a session harder
+* [CB-12682](https://issues.apache.org/jira/browse/CB-12682) (ios, **Android**): changes cancel error message to be consistent for **iOS** **Android**
+* [CB-12764](https://issues.apache.org/jira/browse/CB-12764) (android) Adapt Appium tests for **Android** 7
+* [CB-12847](https://issues.apache.org/jira/browse/CB-12847) added `bugs` entry to `package.json`.
 
 ### 2.4.1 (Apr 27, 2017)
 * [CB-12622](https://issues.apache.org/jira/browse/CB-12622) Updated build badges in `README`

@@ -34,10 +34,10 @@
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.phonegap.helloworld"
     },
-    "cordova-plugin-camera": {
+    "org.solderzzc.base64imagesaverplugin": {
       "PACKAGE_NAME": "com.phonegap.helloworld"
     },
-    "org.solderzzc.base64imagesaverplugin": {
+    "cordova-plugin-camera": {
       "PACKAGE_NAME": "com.phonegap.helloworld"
     }
   },
