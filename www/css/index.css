@@ -16,4 +16,5 @@ body{
 
 section{
     height: 250px;
+    display: none;
 }

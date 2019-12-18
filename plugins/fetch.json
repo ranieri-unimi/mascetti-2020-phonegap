@@ -94,5 +94,21 @@
     },
     "is_top_level": true,
     "variables": {}
+  },
+  "cordova-plugin-whitelist": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-whitelist@1.3.4"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "org.solderzzc.base64imagesaverplugin": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-base64-image-saver"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }

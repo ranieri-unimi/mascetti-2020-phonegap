@@ -70,7 +70,7 @@ var app = {
     },
 
     receivedEvent: function(id) {
-        //$("#btn").click(function(){ fnc.sendRequest(str.GET_MAP, str.EMPTY_JSON, app.onMapResult); });
+        $("#btn-cx").click(function(){ fnc.sendRequest(str.GET_MAP, str.EMPTY_JSON, app.onMapResult); });
         $("#btn-lx").click(function() { fnc.changeSection('map'); fnc.loadMapBox(); });
         $("#btn-lx").click();
         $("#btn-rx").click(function() { fnc.changeSection('chart'); });
@@ -79,4 +79,18 @@ var app = {
     onMapResult : function (result) {
         console.log(result);
     },
+    galleryLoad : function () {
+        navigator.camera.getPicture(
+            app.onPicture,
+            null,
+            {
+                quality: 95,
+                destinationType: Camera.DestinationType.DATA_URL,
+                sourceType: Camera.PictureSourceType.PHOTOLIBRARY
+            }
+            );
+    },
+    onPicture : function (base64Picture) {
+        $("#img-gallery").attr("src","data:image/png;base64,"+base64Picture);
+    }
 };

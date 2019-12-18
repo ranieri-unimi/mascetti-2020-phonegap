@@ -24,13 +24,17 @@
       "cordova-plugin-globalization": {},
       "cordova-plugin-inappbrowser": {},
       "cordova-plugin-network-information": {},
-      "cordova-plugin-vibration": {}
+      "cordova-plugin-vibration": {},
+      "cordova-plugin-whitelist": {},
+      "org.solderzzc.base64imagesaverplugin": {}
     },
     "platforms": [
       "android"
     ]
   },
   "dependencies": {
-    "cordova-android": "^8.1.0"
+    "cordova-android": "^8.1.0",
+    "cordova-base64-image-saver": "0.6.0",
+    "cordova-plugin-whitelist": "1.3.4"
   }
 }
