@@ -27,12 +27,10 @@
 <!-- HEADER -->
 <header>
 	<div class="row">
-		<div class="col-6">
-			<h2>HP</h2>
-		</div>
-		<div class="col-6">
-			<h2>XP</h2>
-		</div>
+		<img class="col-3 align-middle align-self-center" src="img/hp.gif" alt="health point">
+		<h1 class="col-3 align-middle align-self-center">100</h1>
+		<img class="col-3 align-middle align-self-center" src="img/xp.gif" alt="experierce point">
+		<h1 class="col-3 align-middle align-self-center">0</h1>
 	</div>
 </header>
 
@@ -48,17 +46,23 @@
 			<li class="list-group-item list-group-item-info">Pera</li>
 			<li class="list-group-item list-group-item-info">Melon</li>
 		</ul>
+	</div>
+</section>
+
+<!-- PROFILE -->
+<section class="row" id="profile">
+	<div class="col-12">
 		<button id="btn-gallery" onclick="app.galleryLoad()">GALLERIA</button>
-		<img id="img-gallery" alt="propic">
+		<img id="img-gallery" alt="profile picture">
 	</div>
 </section>
 
 <!-- FOOTER -->
 <footer>
 	<div class="row">
-		<button class="col-4 btn-danger" id="btn-lx">LEFT</button>
-		<button class="col-4 btn-warning" id="btn-cx">CENTER</button>
-		<button class="col-4 btn-info" id="btn-rx">RIGHT</button>
+		<button class="col-4 btn btn-danger" id="btn-profile" onclick="fnc.changeSection('profile'); ">Profile</button>
+		<button class="col-4 btn btn-dark" id="btn-map" onclick="fnc.changeSection('map')">Map</button>
+		<button class="col-4 btn btn-info" id="btn-chart" onclick="fnc.changeSection('chart')">Chart</button>
 	</div>
 </footer>
 

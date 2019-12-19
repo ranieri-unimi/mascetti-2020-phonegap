@@ -20,14 +20,14 @@ html {
 }
 
 section{
-    height: 80%;
     display: none;
+    height: 85%;
 }
 header{
-    height: 10%;
+    /*height: 15%;*/
 }
 footer{
-    height: 10%;
+    /*height: 10%;*/
 }
 
 .marker {
@@ -47,3 +47,4 @@ footer{
     text-align: center;
     font-family: 'Open Sans', sans-serif;
 }
+
