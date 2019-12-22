@@ -28,9 +28,9 @@
 <header>
 	<div class="row">
 		<img class="col-3 align-middle align-self-center" src="img/hp.gif" alt="health point">
-		<h1 class="col-3 align-middle align-self-center">100</h1>
+		<h1 id="hp-value" class="col-3 align-middle align-self-center">100</h1>
 		<img class="col-3 align-middle align-self-center" src="img/xp.gif" alt="experierce point">
-		<h1 class="col-3 align-middle align-self-center">0</h1>
+		<h1 id="xp-value" class="col-3 align-middle align-self-center">0</h1>
 	</div>
 </header>
 
@@ -41,28 +41,54 @@
 <!-- CHART -->
 <section class="row" id="chart">
 	<div class="col-12">
-		<ul class="list-group">
-			<li class="list-group-item list-group-item-info">Melon</li>
-			<li class="list-group-item list-group-item-info">Pera</li>
-			<li class="list-group-item list-group-item-info">Melon</li>
+		<h1>National Chart</h1>
+		<ul class="list-group align-self-start align-content-start">
+			<li class="list-group-item list-group-item-dark">
+				<div class="row">
+					<img class="col-3" src="img/player.gif" alt="player picture">
+					<p class="col-4">(no name)</p>
+					<!--
+					<img class="col-2" src="img/hp.gif" alt="health point">
+					<p class="col-2">100</p>
+					-->
+					<img class="col-3" src="img/xp.gif" alt="experierce point">
+					<p class="col-2">0</p>
+				</div>
+			</li>
+			<li class="list-group-item list-group-item-dark">
+				<div class="row">
+					<img class="col-3" src="img/player.gif" alt="player picture">
+					<h3 class="col-4">(no name)</h3>
+					<!--
+					<img class="col-2" src="img/hp.gif" alt="health point">
+					<p class="col-2">100</p>
+					-->
+					<img class="col-3" src="img/xp.gif" alt="experierce point">
+					<h3 class="col-2">0</h3>
+				</div>
+			</li>
 		</ul>
 	</div>
 </section>
 
 <!-- PROFILE -->
 <section class="row" id="profile">
-	<div class="col-12">
-		<button id="btn-gallery" onclick="app.galleryLoad()">GALLERIA</button>
-		<img id="img-gallery" alt="profile picture">
-	</div>
+	<div class="col-12"><img src="img/player.gif" id="img-gallery" alt="profile picture"></div>
+	<div class="col-12"><button class="btn btn-danger" id="btn-gallery" onclick="app.galleryLoad()">Change ProPic...</button></div>
+	<div class="col-12"><form>
+		<label>
+			<input type="text" name="LastName" placeholder="(no name)">
+			<input class="btn btn-danger" type="submit" value="Change Name">
+		</label>
+	</form></div>
 </section>
 
 <!-- FOOTER -->
 <footer>
 	<div class="row">
-		<button class="col-4 btn btn-danger" id="btn-profile" onclick="fnc.changeSection('profile'); ">Profile</button>
-		<button class="col-4 btn btn-dark" id="btn-map" onclick="fnc.changeSection('map')">Map</button>
-		<button class="col-4 btn btn-info" id="btn-chart" onclick="fnc.changeSection('chart')">Chart</button>
+		<button class="col-4 btn btn-danger" id="btn-profile" onclick="app.changeSection('profile'); ">Profile</button>
+		<button class="col-4 btn btn-dark" id="btn-map" onclick="app.changeSection('map')">Map</button>
+		<button class="col-4 btn btn-info" id="btn-chart" onclick="app.changeSection('chart')">Chart</button>
 	</div>
 </footer>
 
@@ -70,7 +96,7 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.js" crossorigin="anonymous"></script>
-<script type="text/javascript" src="https://api.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://api.mapbox.com/mapbox-gl-js/v1.6.1/mapbox-gl.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 
