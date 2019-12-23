@@ -11,7 +11,7 @@ var str = {
 	EMPTY_JSON : JSON.parse('{}'),
 	MAPBOX_TOKEN: 'pk.eyJ1IjoibWFmZmluOTkiLCJhIjoiY2szNGF0NnQ3MGs2YzNnbnk4dDVwaHd0YiJ9.XYdHDkZRn2iHY1xmHSMc1A',
 	MAP_STYLE : 'mapbox://styles/mapbox/navigation-guidance-day-v4',
-	MAX_DISTANCE : 10,
+	MAX_DISTANCE : 20,
 };
 
 var app = {
@@ -33,6 +33,8 @@ var app = {
 	},
 
 	onDeviceReady: function() {
+		$("section").hide();
+		$("#map").show();
 		document.addEventListener('pause',app.onPause, false);
 		document.addEventListener('resume',app.onResume, false);
 
@@ -67,7 +69,7 @@ var app = {
 	loadMapBox : function () {
 		mapboxgl.accessToken = str.MAPBOX_TOKEN;
 		app.map = new mapboxgl.Map({
-			container: 'map',
+			container: 'map-div',
 			style: str.MAP_STYLE,
 			center: [9.150, 45.475],
 			zoom: 9
@@ -83,6 +85,7 @@ var app = {
 	},
 
 	changeSection : function (id) {
+		$("header").hide();
 		$("section").hide();
 		$("#"+id).show();
 		switch (id) {
@@ -102,8 +105,10 @@ var app = {
 	},
 
 	refreshMap : function () {
+		$("header").show();
 		if(!app.map.loaded()) return;
 		app.sendRequest(str.GET_MAP, str.EMPTY_JSON, function (mapresult, status, xhr) {
+			$( ".marker" ).remove();
 			for(let item of mapresult.mapobjects)
 			{
 				app.items[item.id] = item;
@@ -149,8 +154,8 @@ var app = {
 	fight : function (id) {
 		let item = app.items[id];
 		try {
-			let lat = 45.475; //app.geoloc._lastKnownPosition.coord.lat;
-			let lng = 9.150; //app.geoloc._lastKnownPosition.coord.lng;
+			let lat = app.geoloc._lastKnownPosition.coord.lat;
+			let lng = app.geoloc._lastKnownPosition.coord.lng;
 			let dst = app.distance(lat, lng, item.lat, item.lon);
 			if(dst < str.MAX_DISTANCE)
 			{
@@ -161,6 +166,11 @@ var app = {
 						// TODO : animazione del combattimento sull'header in css
 						// died - red , !died - green
 
+						$("header").addClass("blinking");
+						setTimeout(function() {
+							$("header").removeClass("blinking");
+						}, 4.5);
+						app.refreshMap();
 					},
 					function () { $('#info-item-'+id).html('Retry later...'); } );
 			}

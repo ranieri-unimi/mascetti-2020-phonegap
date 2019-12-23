@@ -5,16 +5,7 @@
 	<meta name="format-detection" content="telephone=no" />
 	<meta name="msapplication-tap-highlight" content="no" />
 	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-	<!--
-	<meta http-equiv="Content-Security-Policy" content="
-			default-src * 'unsafe-inline' gap:;
-			style-src * 'unsafe-inline';
-			script-src * 'unsafe-inline';
-			worker-src * 'unsafe-inline' 'unsafe-eval' blob:;
-			media-src *;
-			img-src * 'self' data: blob:;
-			" />
-			-->
+	
 	<!-- GLI STILI CARINI -->
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="https://api.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.css" />
@@ -24,68 +15,81 @@
 <body class="align-items-center align-content-center text-center">
 
 <!-- HEADER -->
-<header>
+<header class="fixed-top">
 	<div class="row">
-		<img class="col-3 align-middle align-self-center" src="img/hp.gif" alt="health point">
-		<h1 id="hp-value" class="col-3 align-middle align-self-center">100</h1>
-		<img class="col-3 align-middle align-self-center" src="img/xp.gif" alt="experierce point">
-		<h1 id="xp-value" class="col-3 align-middle align-self-center">0</h1>
+		<div class="col-3">
+			<img class="fe float-right" src="img/hp.gif" alt="health point">
+		</div>
+		<div class="col-3">
+			<h1 id="hp-value" class="fe text-left">100</h1>
+		</div>
+		<div class="col-3">
+			<img class="fe float-right" src="img/xp.gif" alt="experierce point">
+		</div>
+		<div class="col-3">
+			<h1 id="xp-value" class="fe text-left">0</h1>
+		</div>
 	</div>
 </header>
 
 <!-- MAP -->
-<section class="row" id="map">
-</section>
-
-<!-- CHART -->
-<section class="row" id="chart">
-	<div class="col-12">
-		<h1>National Chart</h1>
-		<ul class="list-group align-self-start align-content-start">
-			<li class="list-group-item list-group-item-dark">
-				<div class="row">
-					<img class="col-3" src="img/player.gif" alt="player picture">
-					<p class="col-4">(no name)</p>
-					<!--
-					<img class="col-2" src="img/hp.gif" alt="health point">
-					<p class="col-2">100</p>
-					-->
-					<img class="col-3" src="img/xp.gif" alt="experierce point">
-					<p class="col-2">0</p>
-				</div>
-			</li>
-			<li class="list-group-item list-group-item-dark">
-				<div class="row">
-					<img class="col-3" src="img/player.gif" alt="player picture">
-					<h3 class="col-4">(no name)</h3>
-					<!--
-					<img class="col-2" src="img/hp.gif" alt="health point">
-					<p class="col-2">100</p>
-					-->
-					<img class="col-3" src="img/xp.gif" alt="experierce point">
-					<h3 class="col-2">0</h3>
-				</div>
-			</li>
-		</ul>
+<section id="map">
+	<div id="map-div" class="map-div">
 	</div>
 </section>
 
+<!-- CHART -->
+<section id="chart">
+	<h1>National Chart</h1>
+			<div class="d-flex align-items-center">
+				<img class="col-2 ce" id="img-player-1" alt="propic player" src="img/player.gif">
+				<h4 class="col-4" id="username-player-1">(no name)</h4>
+				<img class="col-2 ce" alt="hp player" src="img/hp.gif">
+				<h5 class="col-1" id="hp-player-1">100</h5>
+				<img class="col-2 ce" alt="xp player" src="img/xp.gif">
+				<h5 class="col-1" id="xp-player-1">0</h5>
+			</div>
+			<div class="row">
+				<img class="col-2 ce" id="img-player-1" alt="propic player" src="img/player.gif">
+				<h4 class="col-4" id="username-player-1">(no name)</h4>
+				<img class="col-2 ce" alt="hp player" src="img/hp.gif">
+				<h5 class="col-1" id="hp-player-1">100</h5>
+				<img class="col-2 ce" alt="xp player" src="img/xp.gif">
+				<h5 class="col-1" id="xp-player-1">0</h5>
+			</div>
+			<div class="row">
+				<img class="col-2 ce" id="img-player-1" alt="propic player" src="img/player.gif">
+				<h4 class="col-4" id="username-player-1">(no name)</h4>
+				<img class="col-2 ce" alt="hp player" src="img/hp.gif">
+				<h5 class="col-1" id="hp-player-1">100</h5>
+				<img class="col-2 ce" alt="xp player" src="img/xp.gif">
+				<h5 class="col-1" id="xp-player-1">0</h5>
+			</div>
+</section>
+
 <!-- PROFILE -->
-<section class="row" id="profile">
-	<div class="col-12"><img src="img/player.gif" id="img-gallery" alt="profile picture"></div>
-	<div class="col-12"><button class="btn btn-danger" id="btn-gallery" onclick="app.galleryLoad()">Change ProPic...</button></div>
-	<label class="col-12">
-			<input type="text" name="LastName" placeholder="(no name)" id="txt-username">
-			<button class="btn btn-danger" id="btn-username" onclick="app.onUsername()">Change Name</button>
+<section id="profile">
+	<label>
+		<input id="txt-username" class="" type="text" name="LastName" placeholder="(no name)" />
+		<button id="btn-username" class="btn btn-danger" onclick="app.onUsername()">Change Name</button>
 	</label>
+	<br><br>
+	<button id="btn-gallery" class="btn btn-danger" onclick="app.galleryLoad()">Change ProPic...</button>
+	<img id="img-gallery" class="col-12" src="img/player.gif" alt="profile picture">
 </section>
 
 <!-- FOOTER -->
-<footer>
+<footer class="fixed-bottom">
 	<div class="row">
-		<button class="col-4 btn btn-danger" id="btn-profile" onclick="app.changeSection('profile'); ">Profile</button>
-		<button class="col-4 btn btn-dark" id="btn-map" onclick="app.changeSection('map')">Map</button>
-		<button class="col-4 btn btn-info" id="btn-chart" onclick="app.changeSection('chart')">Chart</button>
+		<div class="col-4">
+			<button class="fe btn btn-danger" id="btn-profile" onclick="app.changeSection('profile'); ">Profile</button>
+		</div>
+		<div class="col-4">
+			<button class="fe btn btn-dark" id="btn-map" onclick="app.changeSection('map')">Map</button>
+		</div>
+		<div class="col-4">
+			<button class="fe btn btn-info" id="btn-chart" onclick="app.changeSection('chart')">Chart</button>
+		</div>
 	</div>
 </footer>
 
