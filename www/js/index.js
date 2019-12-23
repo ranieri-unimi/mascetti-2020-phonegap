@@ -12,21 +12,6 @@ var str = {
 	MAPBOX_TOKEN: 'pk.eyJ1IjoibWFmZmluOTkiLCJhIjoiY2szNGF0NnQ3MGs2YzNnbnk4dDVwaHd0YiJ9.XYdHDkZRn2iHY1xmHSMc1A',
 	MAP_STYLE : 'mapbox://styles/mapbox/navigation-guidance-day-v4',
 	MAX_DISTANCE : 10,
-	MATRYOSHKA : {
-		id: 'items',
-		type: 'symbol',
-		source: {
-			type: 'geojson',
-			data: {
-				type: 'FeatureCollection',
-				features: [ ], // item list
-			},
-		},
-		layout: {
-			'icon-image': ['get', 'id'],
-			'icon-size': 0.50,
-		},
-	},
 };
 
 var app = {
@@ -66,16 +51,16 @@ var app = {
 				success: function (result, status, xhr) {
 					localStorage.setItem(str.SESSION_ID, result.session_id);
 					app.loadMapBox(); // Map Loading
-					},
+				},
 				error: app.explNoNet
 			});
 		}
 		else {
-			app.loadMapBox();
 			app.sendRequest(str.GET_PROFILE, str.EMPTY_JSON, function (result, status, xhr) {
 				$('#hp-value').text(result.lp);
 				$('#xp-value').text(result.xp);
 			}, app.explNoNet);
+			app.loadMapBox();
 		}
 	},
 
@@ -170,14 +155,14 @@ var app = {
 			if(dst < str.MAX_DISTANCE)
 			{
 				app.sendRequest(str.FIGHT_EAT,{target_id:id}, function (result, status, xhr) {
-					$('#info-item-'+id).html('');
-					$('#hp-value').text(result.lp);
-					$('#xp-value').text(result.xp);
-					// TODO : animazione del combattimento sull'header in css
-					// died - red , !died - green
+						$('#info-item-'+id).html('');
+						$('#hp-value').text(result.lp);
+						$('#xp-value').text(result.xp);
+						// TODO : animazione del combattimento sull'header in css
+						// died - red , !died - green
 
-				},
-				function () { $('#info-item-'+id).html('Retry later...'); } );
+					},
+					function () { $('#info-item-'+id).html('Retry later...'); } );
 			}
 			else $('#info-item-'+id).html('Get closer and retry!');
 		}
@@ -196,7 +181,7 @@ var app = {
 		dist = dist * 60 * 1.1515;
 		dist = dist * 1.609344;
 		return dist;
-},
+	},
 
 	refreshChart : function () {
 		app.sendRequest(str.RANKING, str.EMPTY_JSON, function (result, status, xhr) {
@@ -206,7 +191,8 @@ var app = {
 
 	refreshProfile : function () {
 		app.sendRequest(str.GET_PROFILE, str.EMPTY_JSON, function (result, status, xhr) {
-			// TODO : caricare il profilo
+			if(result.img != null) $('#img-gallery').attr('src','data:image/png;base64,'+result.img);
+			if(result.username != null) $('#txt-username').attr('placeholder', result.username);
 		});
 	},
 
@@ -223,12 +209,18 @@ var app = {
 	},
 
 	onPicture : function (base64Picture) {
-		$("#img-gallery").attr("src","data:image/png;base64,"+base64Picture);
+		app.sendRequest(str.SET_PROFILE, {img:base64Picture}, function () {
+			$("#img-gallery").attr("src","data:image/png;base64,"+base64Picture);
+		}, app.explNoNet);
 	},
 
-	explNoNet : function () { alert( 'Error network, check your Internet connection.' ); },
-
-	reqUrl : function (resource) { return str.BASE_URL.replace('URIRES', resource); },
+	onUsername : function () {
+		let usr = $('#txt-username').val();
+		app.sendRequest(str.SET_PROFILE, {username:usr}, function () {
+			$("#txt-username").attr("placeholder",usr);
+			$("#txt-username").val('');
+		}, app.explNoNet);
+	},
 
 	sendRequest: function (url, data, success, error) {
 		data.session_id = localStorage.getItem(str.SESSION_ID);
@@ -241,9 +233,8 @@ var app = {
 			error: error
 		});
 	},
-
+	reqUrl : function (resource) { return str.BASE_URL.replace('URIRES', resource); },
+	explNoNet : function () { alert( 'Error network, check your Internet connection.' ); },
 	onPause: function() { },
-
 	onResume: function() { },
-
 };

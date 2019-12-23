@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-
 <head>
 	<meta charset="utf-8" />
 	<meta name="format-detection" content="telephone=no" />
@@ -75,12 +74,10 @@
 <section class="row" id="profile">
 	<div class="col-12"><img src="img/player.gif" id="img-gallery" alt="profile picture"></div>
 	<div class="col-12"><button class="btn btn-danger" id="btn-gallery" onclick="app.galleryLoad()">Change ProPic...</button></div>
-	<div class="col-12"><form>
-		<label>
-			<input type="text" name="LastName" placeholder="(no name)">
-			<input class="btn btn-danger" type="submit" value="Change Name">
-		</label>
-	</form></div>
+	<label class="col-12">
+			<input type="text" name="LastName" placeholder="(no name)" id="txt-username">
+			<button class="btn btn-danger" id="btn-username" onclick="app.onUsername()">Change Name</button>
+	</label>
 </section>
 
 <!-- FOOTER -->
