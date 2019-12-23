@@ -41,34 +41,25 @@
 <!-- CHART -->
 <section id="chart">
 	<h1>National Chart</h1>
-			<div class="d-flex align-items-center">
-				<img class="col-2 ce" id="img-player-1" alt="propic player" src="img/player.gif">
-				<h4 class="col-4" id="username-player-1">(no name)</h4>
-				<img class="col-2 ce" alt="hp player" src="img/hp.gif">
-				<h5 class="col-1" id="hp-player-1">100</h5>
-				<img class="col-2 ce" alt="xp player" src="img/xp.gif">
-				<h5 class="col-1" id="xp-player-1">0</h5>
-			</div>
-			<div class="row">
-				<img class="col-2 ce" id="img-player-1" alt="propic player" src="img/player.gif">
-				<h4 class="col-4" id="username-player-1">(no name)</h4>
-				<img class="col-2 ce" alt="hp player" src="img/hp.gif">
-				<h5 class="col-1" id="hp-player-1">100</h5>
-				<img class="col-2 ce" alt="xp player" src="img/xp.gif">
-				<h5 class="col-1" id="xp-player-1">0</h5>
-			</div>
-			<div class="row">
-				<img class="col-2 ce" id="img-player-1" alt="propic player" src="img/player.gif">
-				<h4 class="col-4" id="username-player-1">(no name)</h4>
-				<img class="col-2 ce" alt="hp player" src="img/hp.gif">
-				<h5 class="col-1" id="hp-player-1">100</h5>
-				<img class="col-2 ce" alt="xp player" src="img/xp.gif">
-				<h5 class="col-1" id="xp-player-1">0</h5>
-			</div>
+	<div class="d-flex justify-content-between align-items-center">
+		<div class="align-self-center">
+			<img class="ce" id="img-player-1" alt="propic player" src="img/player.gif">
+		</div>
+		<div class="align-self-center mr-auto p-2">
+			<h3 class="" id="username-player-1">(no name)</h3>
+		</div>
+		<div class="align-self-center p-2">
+			<h4 class="" id="xp-player-1">0</h4>
+		</div>
+		<div class="align-self-center p-2">
+			<img class="ce" alt="xp player" src="img/xp.gif">
+		</div>
+	</div>
 </section>
 
 <!-- PROFILE -->
 <section id="profile">
+	<h1>Profile</h1>
 	<label>
 		<input id="txt-username" class="" type="text" name="LastName" placeholder="(no name)" />
 		<button id="btn-username" class="btn btn-danger" onclick="app.onUsername()">Change Name</button>
