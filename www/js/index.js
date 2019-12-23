@@ -154,8 +154,8 @@ var app = {
 	fight : function (id) {
 		let item = app.items[id];
 		try {
-			let lat = app.geoloc._lastKnownPosition.coord.lat;
-			let lng = app.geoloc._lastKnownPosition.coord.lng;
+			let lat = app.geoloc._lastKnownPosition.coords.latitude;
+			let lng = app.geoloc._lastKnownPosition.coords.longitude;
 			let dst = app.distance(lat, lng, item.lat, item.lon);
 			if(dst < str.MAX_DISTANCE)
 			{
@@ -176,7 +176,10 @@ var app = {
 			}
 			else $('#info-item-'+id).html('Get closer and retry!');
 		}
-		catch (error) { alert('Activate GPS to continue playing!'); }
+		catch (e) {
+			console.log(e.toString());
+			alert('Activate GPS to continue playing!');
+		}
 	},
 
 	distance : function (lat1, lon1, lat2, lon2) {
@@ -194,8 +197,28 @@ var app = {
 	},
 
 	refreshChart : function () {
+		$('#chart-container').html('');
 		app.sendRequest(str.RANKING, str.EMPTY_JSON, function (result, status, xhr) {
-			// TODO : caricare la classifica
+			for (let player of result.ranking) {
+				let img = (player.img == null)? 'img/player.gif':'data:image/png;base64,'+player.img.toString();
+				let usn = (player.username == null)?'(no name)':player.username.toString();
+
+				$('#chart-container').append('\n' +
+					'\t\t<div class="d-flex justify-content-between align-items-center">\n' +
+					'\t\t\t<div class="align-self-center">\n' +
+					'\t\t\t\t<img class="ce" alt="propic player" src="'+img+'">\n' +
+					'\t\t\t</div>\n' +
+					'\t\t\t<div class="align-self-center mr-auto p-2">\n' +
+					'\t\t\t\t<h3 class="">'+usn+'</h3>\n' +
+					'\t\t\t</div>\n' +
+					'\t\t\t<div class="align-self-center p-2">\n' +
+					'\t\t\t\t<h4 class="">'+player.xp+'</h4>\n' +
+					'\t\t\t</div>\n' +
+					'\t\t\t<div class="align-self-center p-2">\n' +
+					'\t\t\t\t<img class="ce" alt="xp player" src="img/xp.gif">\n' +
+					'\t\t\t</div>\n' +
+					'\t\t</div>');
+			}
 		});
 	},
 
