@@ -147,7 +147,7 @@ var app = {
 			wrd = 'Eat';
 			cls = 'btn-info';
 		} // todo : abbellire questo povero popup
-		return '<h4>'+item.name+'</h4><h5>'+item.size+'</h5><button id="btn-figth-item-'+item.id+
+		return '<h4>'+item.name+'</h4><h5>Size: '+item.size+'</h5><button id="btn-figth-item-'+item.id+
 			'" onclick="app.fight('+item.id+')" class="btn '+cls+'">'+wrd+'</button><p id="info-item-'+item.id+'"></p>';
 	},
 
@@ -163,13 +163,10 @@ var app = {
 						$('#info-item-'+id).html('');
 						$('#hp-value').text(result.lp);
 						$('#xp-value').text(result.xp);
-						// TODO : animazione del combattimento sull'header in css
-						// died - red , !died - green
 
-						$("header").addClass("blinking");
-						setTimeout(function() {
-							$("header").removeClass("blinking");
-						}, 4.5);
+						let clr = '';
+						if(result.died) clr += ' red';
+						$("header").attr('class','fixed-top '+clr);
 						app.refreshMap();
 					},
 					function () { $('#info-item-'+id).html('Retry later...'); } );

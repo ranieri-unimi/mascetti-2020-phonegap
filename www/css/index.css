@@ -74,16 +74,26 @@ footer{
     font-family: 'Open Sans', sans-serif;
 }
 
-.blinking{
-    animation: blinking 1.5s infinite;
+.red{
+    animation: red-blinking 1.5s;
+    animation-iteration-count: 3;
 }
 
-@keyframes blinking{
+.green{
+    animation: green-blinking 1.5s;
+    animation-iteration-count: 3;
+}
+
+@keyframes red-blinking{
     0%{background-color: #ff000000;}
-    25%{background-color: #ff0000da;}
     50%{background-color: #ff0000ff;}
-    75%{background-color: #ff0000da;}
     100%{background-color: #ff000000;}
+}
+
+@keyframes green-blinking{
+    0%{background-color: #00ff0000;}
+    50%{background-color: #00ff00ff;}
+    100%{background-color: #00ff0000;}
 }
 
 .fe {
