@@ -17,6 +17,8 @@ var str = {
 var app = {
 	items : {},
 	map : undefined,
+	fileLimit : 1024*100,
+
 	geoloc : new mapboxgl.GeolocateControl( {
 		positionOptions: {
 			enableHighAccuracy: true
@@ -91,6 +93,7 @@ var app = {
 		switch (id) {
 			case 'map':
 				app.refreshMap();
+				app.map.resize();
 				break;
 			case 'chart':
 				app.refreshChart();
@@ -239,9 +242,16 @@ var app = {
 	},
 
 	onPicture : function (base64Picture) {
-		app.sendRequest(str.SET_PROFILE, {img:base64Picture}, function () {
-			$("#img-gallery").attr("src","data:image/png;base64,"+base64Picture);
-		}, app.explNoNet);
+
+		if(app.byteLength(base64Picture)>app.fileLimit){
+			alert("Image too big, sempai!");
+			return;
+		}
+		app.sendRequest(str.SET_PROFILE, {img:base64Picture},
+			function (result, status, xhr) {
+				$("#img-gallery").attr("src","data:image/png;base64,"+base64Picture);
+				},
+			app.explNoNet);
 	},
 
 	onUsername : function () {
@@ -267,4 +277,5 @@ var app = {
 	explNoNet : function () { alert( 'Error network, check your Internet connection.' ); },
 	onPause: function() { },
 	onResume: function() { },
+	byteLength : function(str) { return encodeURI(str).split(/%..|./).length - 1; },
 };
