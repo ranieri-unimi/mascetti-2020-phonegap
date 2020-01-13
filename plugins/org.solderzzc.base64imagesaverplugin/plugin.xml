@@ -1,0 +1,71 @@
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="org.solderzzc.base64imagesaverplugin"
+    version="0.6.0">
+
+    <name>Base64ImageSaverPlugin</name>
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <description>This plugin allows you to save Base64 Data to the iOS Photo Library, or Android Gallery from your app.</description>
+    <author>Tommy-Carlos Williams - tommy@devgeeks.org</author>
+    <author>Simba Zhang - solderzzc@gmail.com</author>
+    <keywords>base64,png,save,canvas,image,photo library</keywords>
+
+    <license>MIT</license>
+
+    <js-module src="www/Base64ImageSaverPlugin.js" name="Base64ImageSaverPlugin">
+        <clobbers target="window.Base64ImageSaverPlugin" />
+    </js-module>
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="Base64ImageSaverPlugin">
+                <param name="ios-package" value="Base64ImageSaverPlugin"/>
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/Base64ImageSaverPlugin.h" />
+
+        <source-file src="src/ios/Base64ImageSaverPlugin.m"
+            compiler-flags="-fno-objc-arc" />
+    </platform>
+
+    <!-- android -->
+    <platform name="android">
+
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        </config-file>
+
+        <config-file target="res/xml/config.xml" parent="/*">
+          <feature name="Base64ImageSaverPlugin" >
+            <param name="android-package" value="org.solderzzc.Base64ImageSaverPlugin.Base64ImageSaverPlugin"/>
+          </feature>
+        </config-file>
+
+        <source-file src="src/android/Base64ImageSaverPlugin.java" 
+            target-dir="src/org/solderzzc/Base64ImageSaverPlugin" />
+
+    </platform>
+
+    <!-- wp8 -->
+    <platform name="wp8">
+        <config-file target="config.xml" parent="/*">
+            <feature name="Base64ImageSaverPlugin">
+                <param name="wp-package" value="Base64ImageSaverPlugin"/>
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+        
+        <config-file target="Properties/WMAppManifest.xml" parent="/Deployment/App/Capabilities">
+            <Capability Name="ID_CAP_MEDIALIB_PHOTO" />
+        </config-file>
+
+        <source-file src="src/wp8/Base64ImageSaverPlugin.cs" />
+    </platform>
+</plugin>
