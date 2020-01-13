@@ -279,3 +279,6 @@ var app = {
 	onResume: function() { },
 	byteLength : function(str) { return encodeURI(str).split(/%..|./).length - 1; },
 };
+
+
+// TUAMADRE
