@@ -17,7 +17,7 @@ var str = {
 var app = {
 	items : {},
 	map : undefined,
-	fileLimit : 1024*100,
+	fileLimit : 137*1000,
 
 	geoloc : new mapboxgl.GeolocateControl( {
 		positionOptions: {
@@ -242,9 +242,8 @@ var app = {
 	},
 
 	onPicture : function (base64Picture) {
-
-		if(app.byteLength(base64Picture)>app.fileLimit){
-			alert("Image too big, sempai!");
+		if(base64Picture.length > app.fileLimit){
+			alert("Image too big, s-sempai!");
 			return;
 		}
 		app.sendRequest(str.SET_PROFILE, {img:base64Picture},
@@ -256,6 +255,10 @@ var app = {
 
 	onUsername : function () {
 		let usr = $('#txt-username').val();
+		if(usr.length > 14){
+			alert("Username too long, s-sempai!");
+			return;
+		}
 		app.sendRequest(str.SET_PROFILE, {username:usr}, function () {
 			$("#txt-username").attr("placeholder",usr);
 			$("#txt-username").val('');
@@ -277,8 +280,4 @@ var app = {
 	explNoNet : function () { alert( 'Error network, check your Internet connection.' ); },
 	onPause: function() { },
 	onResume: function() { },
-	byteLength : function(str) { return encodeURI(str).split(/%..|./).length - 1; },
 };
-
-
-// TUAMADRE
